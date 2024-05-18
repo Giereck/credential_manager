@@ -37,16 +37,16 @@ fn main() {
         let login_user_input = take_input();
 
         let found_cred: &Credential;
-        if map.contains_key(&login_user_input) {
-            found_cred = map.get(&String::from(login_user_input)).unwrap();
-        } else {
-            println!(
-                "No credentials found with username = {}",
-                login_user_input.red()
-            );
-            continue;
+        match map.get(&login_user_input) {
+            Some(cred) => found_cred = cred,
+            None => {
+                println!(
+                    "No credentials found with username = {}",
+                    login_user_input.red()
+                );
+                continue;
+            }
         }
-
         println!("Enter password:");
 
         let login_password_input = take_input();
