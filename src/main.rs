@@ -1,9 +1,9 @@
 use colored::{self, Colorize};
 
-use crate::utils::{hash_string, Credential, Password, UserName};
+use crate::credential_utils::{hash_string, Credential, Password, UserName};
 use std::collections::HashMap;
 use std::io;
-mod utils;
+mod credential_utils;
 
 fn main() {
     let user_name = loop {
